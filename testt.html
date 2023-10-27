@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP 시스템</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- 네비게이션 바 -->
+<nav class="navbar">
+    <!-- 네비게이션 링크들 추가 -->
+    <ul class="nav-links">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+    </ul>
+</nav>
+
+<!-- 전체 컨테이너 -->
+<div class="container">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar">
+        <!-- 사이드바 링크들 추가 -->
+        <ul class="sidebar-links">
+            <li><a href="#">대시보드</a></li>
+            <li><a href="#">주문 관리</a></li>
+            <li><a href="#">재고 관리</a></li>
+        </ul>
+    </aside>
+
+    <!-- 오른쪽 메인 화면 -->
+    <main class="main-content">
+        <!-- 메인 컨텐츠 내용 추가 -->
+        <ul class="tabs" id="tabs">
+            <li class="tab" id="tab1"><a href="#" onclick="showTab('tab1')">탭 1</a><button onclick="removeTab('tab1')">X</button></li>
+            <li class="tab" id="tab2"><a href="#" onclick="showTab('tab2')">탭 2</a><button onclick="removeTab('tab2')">X</button></li>
+        </ul>
+
+        <button onclick="addTab()">+</button>
+
+    </main>
+</div>
+</body>
+</html>
+
+
+<script>
+    function showTab(tabId) {
+        // 모든 탭 내용을 숨김
+        var tabContents = document.querySelectorAll('.tab-content');
+        for (var i = 0; i < tabContents.length; i++) {
+            tabContents[i].style.display = 'none';
+        }
+
+        // 선택한 탭의 내용을 보임
+        var selectedTab = document.getElementById(tabId);
+        if (selectedTab) {
+            selectedTab.style.display = 'block';
+        }
+    }
+
+    function addTab() {
+        // 새로운 탭 생성
+        var tabsContainer = document.getElementById('tabs');
+        var newTabId = 'tab' + (tabsContainer.childElementCount + 1); // 고유한 ID 생성
+        var newTab = document.createElement('li');
+        newTab.className = 'tab';
+        newTab.id = newTabId;
+        newTab.innerHTML = '<a href="#" onclick="showTab(\'' + newTabId + '\')">새 탭</a><button onclick="removeTab(\'' + newTabId + '\')">X</button>';
+        tabsContainer.appendChild(newTab);
+
+        // 새로운 탭의 내용 생성
+        var mainContent = document.querySelector('.main-content');
+        var newTabContent = document.createElement('div');
+        newTabContent.id = newTabId;
+        newTabContent.className = 'tab-content';
+        newTabContent.innerHTML = '<h2>새 탭</h2><p>새 탭의 내용이 여기에 들어갑니다.</p>';
+        mainContent.appendChild(newTabContent);
+    }
+
+    function removeTab(tabId) {
+        // 탭 제거
+        var tabsContainer = document.getElementById('tabs');
+        var tabToRemove = document.getElementById(tabId);
+        tabsContainer.removeChild(tabToRemove);
+
+        // 탭 내용 제거
+        var mainContent = document.querySelector('.main-content');
+        var tabContentToRemove = document.getElementById(tabId);
+        mainContent.removeChild(tabContentToRemove);
+    }
+</script>

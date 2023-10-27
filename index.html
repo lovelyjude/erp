@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP 시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tabs.css"> <!-- 추가된 CSS 파일 -->
+</head>
+<body>
+<!-- 네비게이션 바 -->
+<nav class="navbar">
+    <!-- 네비게이션 링크들 추가 -->
+    <ul class="nav-links">
+        <li><a href="#" onclick="changeSidebar('menu1')">메뉴1</a></li>
+        <li><a href="#" onclick="changeSidebar('menu2')">메뉴2</a></li>
+        <li><a href="#" onclick="changeSidebar('menu3')">메뉴3</a></li>
+    </ul>
+</nav>
+
+<!-- 왼쪽 사이드바 -->
+<aside class="sidebar" id="sidebar">
+    <!-- 기본 사이드바 내용 -->
+    <ul class="sidebar-links">
+        <li><a href="#" onclick="addTab('Tab1')">탭 1</a></li>
+        <li><a href="#" onclick="addTab('Tab2')">탭 2</a></li>
+        <li><a href="#" onclick="addTab('Tab3')">탭 3</a></li>
+    </ul>
+</aside>
+
+<!-- 오른쪽 메인 화면 -->
+<main class="main-content" id="mainContent">
+    <!-- 메인 컨텐츠 내용 추가 -->
+    <div id="tabs" class="tabs-container"></div>
+    <div id="tabContents" class="tab-contents"></div>
+</main>
+
+<script src="tabs.js"></script> <!-- 추가된 JavaScript 파일 -->
+</body>
+</html>
