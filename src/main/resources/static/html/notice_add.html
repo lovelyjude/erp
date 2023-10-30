@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기</title>
+</head>
+<body>
+<h1>글쓰기</h1>
+<form action="/notice_ok" method="post">
+    <div>
+        <label for="noticeTitle">제목:</label>
+        <input type="text" id="noticeTitle" name="noticeTitle" required>
+    </div>
+    <div>
+        <label for="noticeMemo">내용:</label>
+        <textarea id="noticeMemo" name="noticeMemo" rows="4" required></textarea>
+    </div>
+    <button type="submit">저장</button>
+</form>
+</body>
+</html>

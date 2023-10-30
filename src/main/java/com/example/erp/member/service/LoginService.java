@@ -25,7 +25,7 @@ public class LoginService {
             //조회 결과가 있다면
             MemberEntity memberEntity = byUserId.get();
             System.out.println("조회결과엔티티에서 : " + memberEntity.getUserId() +memberEntity.getUserPass());
-            System.out.println("조회결과dto에서 : " + loginDto.getUserId() + loginDto.getUserPass());
+            System.out.println("조회결과dto에서 : " + loginDto.getUserId()+ loginDto.getUserPass());
 
             if (memberEntity.getUserPass().equals(loginDto.getUserPass())){
                 //비밀번호 일치
