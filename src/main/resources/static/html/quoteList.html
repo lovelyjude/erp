@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap 링크 주소 수정 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<!-- 추가한 클래스명: container-fluid -->
+<div class="container-fluid my-5"> <!-- 컨테이너 전체 너비로 조정 -->
+  <a class="btn btn-primary" href="주소" role="button">견적서 작성</a>
+  <p></p>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+      <th scope="col">거래처</th>
+      <th scope="col">날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="quote:${qouteList}">
+      <td th:text="${quote.id}"></td>
+      <td><a th:href="@{|/admin/quote/${quote.id}}" th:text="${quote.quoteTitle}"></a></td>
+      <td th:text="${quote.inputCorrespondent}"></td>
+      <td th:text="*{#temporals.format(notice.noticeCreatedTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- jQuery, Bootstrap 스크립트 링크 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</body>
+</html>
